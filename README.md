@@ -1,4 +1,4 @@
-# Skripsi: [Judul Skripsi]
+# Skripsi: Sistem Informasi Presensi dan Catatan Harian
 
 ## Identitas Diri
 
