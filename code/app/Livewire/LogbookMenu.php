@@ -20,11 +20,11 @@ class LogbookMenu extends Component
 
     public function render()
     {
-        // if (auth()->user()->logbooks()->where('date', Carbon::now()->format('Y-m-d'))->where('user_id', auth()->user()->id)->exists() || Carbon::now()->format('l') == 'Sunday' || Carbon::now()->format('l') == 'Saturday') {
-        //     $this->alert = false;
-        // }else{
-        //     $this->alert = true;
-        // }
+        if (auth()->user()->logbooks()->where('date', Carbon::now()->format('Y-m-d'))->where('user_id', auth()->user()->id)->exists() || Carbon::now()->format('l') == 'Sunday' || Carbon::now()->format('l') == 'Saturday') {
+            $this->alert = false;
+        }else{
+            $this->alert = true;
+        }
 
         return view('livewire.logbook-menu', ['logbooks' => auth()->user()->logbooks()->orderBy('date', 'desc')->paginate(10)]);
     }

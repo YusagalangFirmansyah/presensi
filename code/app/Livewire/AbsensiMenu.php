@@ -28,11 +28,11 @@ class AbsensiMenu extends Component
 
     public function render()
     {
-        // if (Absen::where('date', Carbon::now()->format('Y-m-d'))->where('user_id', auth()->user()->id)->exists() || Carbon::now()->format('l') == 'Sunday' || Carbon::now()->format('l') == 'Saturday') {
-        //     $this->alert = false;
-        // }else{
-        //     $this->alert = true;
-        // }
+        if (Absen::where('date', Carbon::now()->format('Y-m-d'))->where('user_id', auth()->user()->id)->exists() || Carbon::now()->format('l') == 'Sunday' || Carbon::now()->format('l') == 'Saturday') {
+            $this->alert = false;
+        }else{
+            $this->alert = true;
+        }
 
         return view('livewire.absensi-menu', ['absens' => Absen::with('absenHasPresensis')->where('user_id', auth()->user()->id )->paginate(10)]);
     }
