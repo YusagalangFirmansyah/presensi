@@ -37,8 +37,12 @@
                 <span>Absence</span></a></li>
         <li class=""><a class="nav-link" href="{{ route('logbooks') }}"><i class="fas fa-file-signature"></i>
                 <span>Log Book</span></a></li>
+        {{-- hapus bagian ini --}}
+        @if (Auth::user()->role->id != '1')
         <li class=""><a class="nav-link" href="{{ route('pengajuan') }}"><i class="fas fa-file-alt"></i>
                 <span>Request</span></a></li>
+        @endif
+        {{-- dan ini --}}
         @if (Auth::user()->role->id == '1')
             <li class="menu-header">Reporting</li>
             <li class=""><a class="nav-link" href="{{ route('reportings') }}"><i class="fas fa-fire"></i>
